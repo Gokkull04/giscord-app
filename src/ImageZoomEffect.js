@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import backgroundImage from "./assets/background.jpg";
 
 const ImageZoomEffect = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -18,20 +19,25 @@ const ImageZoomEffect = () => {
       onMouseMove={handleMouseMove}
     >
       <div
-        className="absolute w-[120%] h-[120%] bg-cover bg-center transition-transform duration-500"
+        className="absolute w-[120%] h-[120%] transition-transform duration-500"
         style={{
-          backgroundImage: "url('https://your-image-url.com/image.jpg')", // Replace with your image URL
-          transform: `scale(${1 + position.x * 0.2}) rotate(${
-            position.x * 10 - 5
+          transform: `scale(${1 + position.x * 0.4}) rotate(${
+            position.x > 0.5 ? (position.x - 0.5) * 30 : position.x * -10
           }deg)`,
         }}
-      />
+      >
+        <img
+          src={backgroundImage}
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+      </div>
       {showDescription && (
         <div className="absolute left-10 text-white max-w-xs opacity-80 transition-opacity duration-500">
-          <h2 className="text-2xl font-semibold">Image Description</h2>
+          <h2 className="text-2xl font-semibold">Welcome to our website</h2>
           <p className="text-base">
-            This is a description that appears when the cursor is on the left
-            side.
+            Our motive is to create the projects given by the clients <br />{" "}
+            within the given period of time.
           </p>
         </div>
       )}

@@ -1,5 +1,5 @@
 import React from "react";
-import ImageZoomEffect from "./ImageZoomEffect";
+import ImageZoomEffect from "./ImageZoomEffect.js";
 
 function App() {
   return (
